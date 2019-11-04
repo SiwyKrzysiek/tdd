@@ -1,0 +1,17 @@
+# Some intelliJ files (Not sure)
+.classpath
+.project
+.settings/
+bin/
+
+# Maven build artefacts
+target/
+
+# IntelliJ config
+.idea
+
+# OSX filesystem file
+.DS_Store
+
+# VSCode configuration
+.vscode
