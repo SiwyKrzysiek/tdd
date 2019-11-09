@@ -1,20 +1,26 @@
+package graph;
+
 import java.util.List;
 
-public class Node {
+public class Node<T> {
 	private int id;
+	private T value;
 	private List<Node> neighbours;
 	private int weightStorage;
 
-	public Node() {
+	public Node(T value) {
+		this.value = value;
 	}
 
-	public Node(int id) {
+	public Node(int id, T value) {
 		this.id = id;
+		this.value = value;
 		this.weightStorage = 0;
 	}
 
-	public Node(int id, int weightStorage) {
+	public Node(int id, T value, int weightStorage) {
 		this.id = id;
+		this.value = value;
 		this.weightStorage = weightStorage;
 	}
 
@@ -26,6 +32,14 @@ public class Node {
 		this.id = id;
 	}
 
+	public T getValue() {
+		return value;
+	}
+
+	public void setValue(T value) {
+		this.value = value;
+	}
+
 	public int getWeightStorage() {
 		return weightStorage;
 	}
@@ -34,11 +48,12 @@ public class Node {
 		this.weightStorage = weightStorage;
 	}
 
-	public void appendNodeToNeighbours(Node node) {
+	public void addNeighbour(Node node) {
 		this.neighbours.add(node);
 	}
 
-	public Node getNodeFromNeighbours(int nr) {
-		return this.neighbours.get(nr);
+	public List<Node> getNeighbours() {
+		return this.neighbours;
 	}
+
 }
