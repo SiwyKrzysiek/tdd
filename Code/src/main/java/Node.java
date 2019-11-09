@@ -46,13 +46,12 @@ public class Node<T> {
 		this.weightStorage = weightStorage;
 	}
 
-	public void appendNodeToNeighbours(Node node) {
+	public void addNeighbour(Node node) {
 		this.neighbours.add(node);
 	}
 
-	public Node getNodeFromNeighbours(int nr) {
-		return this.neighbours.get(nr);
+	public List<Node> getNeighbours() {
+		return this.neighbours;
 	}
-
 
 }
