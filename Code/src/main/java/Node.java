@@ -33,4 +33,12 @@ public class Node {
 	public void setWeightStorage(int weightStorage) {
 		this.weightStorage = weightStorage;
 	}
+
+	public void appendNodeToNeighbours(Node node) {
+		this.neighbours.add(node);
+	}
+
+	public Node getNodeFromNeighbours(int nr) {
+		return this.neighbours.get(nr);
+	}
 }
