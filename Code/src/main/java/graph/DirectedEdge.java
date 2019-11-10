@@ -1,6 +1,6 @@
 package graph;
 
-public class DirectedEdge {
+public class DirectedEdge<T> {
 	public void doNothing(){
 
 	}
