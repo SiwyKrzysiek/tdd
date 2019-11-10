@@ -5,7 +5,9 @@ import graph.Node;
 import org.junit.jupiter.api.Test;
 import util.InfiniteCounter;
 
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -64,8 +66,8 @@ class DFSTest {
 
         // Then
         String result = resultBuilder.toString();
-        String expectedResult = "aefhgbcd";
+        List<String> possibleResults = Arrays.asList("abcdefgh", "abcdefhg", "aefghbcd", "aefhgbcd");
 
-        assertEquals(expectedResult, result);
+        assert(possibleResults.contains(result));
     }
 }
