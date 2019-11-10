@@ -1,8 +1,6 @@
 package graph;
 
-import java.util.Objects;
-import java.util.Optional;
-import java.util.OptionalInt;
+import java.util.*;
 
 /**
  * Class for both weighted and unweighted graph edges.
@@ -31,4 +29,17 @@ public class UndirectedEdge<T> {
         this.weight = weight;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UndirectedEdge<?> that = (UndirectedEdge<?>) o;
+        return (this.a == that.a && this.b == that.b)
+                || (this.a == that.b && this.b == that.a) ;
+    }
+
+    @Override
+    public int hashCode() {
+        return a.hashCode() + b.hashCode();
+    }
 }
