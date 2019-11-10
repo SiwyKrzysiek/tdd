@@ -1,12 +1,28 @@
 package graph;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Node<T> {
 	private int id;
 	private T value;
 	private List<Node> neighbours;
 	private int weightStorage;
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Node<?> node = (Node<?>) o;
+		return id == node.id &&
+				weightStorage == node.weightStorage &&
+				value.equals(node.value);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, value, weightStorage);
+	}
 
 	public Node(T value) {
 		this.value = value;
