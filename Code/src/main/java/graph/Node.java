@@ -1,12 +1,13 @@
 package graph;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Node<T> {
 	private int id;
 	private T value;
-	private List<Node> neighbours;
+	private final List<Node> neighbours;
 	private int weightStorage;
 
 	@Override
@@ -22,6 +23,10 @@ public class Node<T> {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, value, weightStorage);
+	}
+
+	{
+		neighbours = new ArrayList<>();
 	}
 
 	public Node(T value) {
