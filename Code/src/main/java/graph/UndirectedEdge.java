@@ -12,7 +12,19 @@ import java.util.*;
 public class UndirectedEdge<T> {
     private final Node<T> a;
     private final Node<T> b;
-    
+
+    public Node<T> getA() {
+        return a;
+    }
+
+    public Node<T> getB() {
+        return b;
+    }
+
+    public OptionalInt getWeight() {
+        return weight;
+    }
+
     private final OptionalInt weight;
 
     public UndirectedEdge(Node<T> a, Node<T> b) {
