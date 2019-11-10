@@ -25,10 +25,6 @@ public class Graph<T> {
 		nodes.add(vertex);
 	}
 
-	public void removeVertex(Node<T> vertex) {
-		nodes.remove(vertex);
-	}
-
     public void createEdge(Node<T> a, Node<T> b) {
         if (!nodes.contains(a) || !nodes.contains(b)) {
             throw new IllegalArgumentException("Graph doesn't contain one of the nodes");
