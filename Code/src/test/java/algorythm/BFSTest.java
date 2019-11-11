@@ -1,6 +1,5 @@
 package algorythm;
 
-import algorythm.BFS;
 import graph.Graph;
 import graph.Node;
 import org.junit.jupiter.api.Test;
