@@ -2,6 +2,7 @@ package graph;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class DirectedEdgeTest {
@@ -16,5 +17,19 @@ class DirectedEdgeTest {
 
 		//Then
 		assertNotNull(a);
+	}
+
+	@Test
+	void edgeFromA_ToB_isDifferent() {
+		//Given
+		Node<Integer> a = new Node<>(0, 5);
+		Node<Integer> b = new Node<>(1, 7);
+
+		//When
+		DirectedEdge<Integer> oneWay = new DirectedEdge<>(a, b);
+		DirectedEdge<Integer> otherWay = new DirectedEdge<>(b, a);
+
+		//Then
+		assertNotEquals(oneWay, otherWay);
 	}
 }
