@@ -1,5 +1,6 @@
 package graph;
 
+import java.util.Objects;
 import java.util.OptionalInt;
 
 public class DirectedEdge<T> {
@@ -38,12 +39,11 @@ public class DirectedEdge<T> {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		DirectedEdge<?> that = (DirectedEdge<?>) o;
-		return (this.a == that.a && this.b == that.b)
-				|| (this.a == that.b && this.b == that.a) ;
+		return this.a.equals(that.a) && this.b.equals(that.b);
 	}
 
 	@Override
 	public int hashCode() {
-		return a.hashCode() + b.hashCode();
+		return Objects.hash(a, b);
 	}
 }
