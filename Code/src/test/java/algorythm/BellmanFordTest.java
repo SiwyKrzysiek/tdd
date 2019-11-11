@@ -61,7 +61,26 @@ class BellmanFordTest {
 		graph.createEdge(s, a, 10);
 
 		//When
+		BellmanFord<String> bellmanFord = new BellmanFord<>(s);
+		StringBuilder resultPath = new StringBuilder();
+
+		while (bellmanFord.hasNext()) {
+			Node<String> node = bellmanFord.next();
+			resultPath.append(node.getValue());
+		}
 
 		//Then
+		String finalResult = resultPath.toString();
+
+		int[] expectedWeights = {0, 5, 5, 7, 9, 8};
+		String expectedPath = "sedcbasedcbasedcbasedcbasedcba";
+
+		assert (expectedPath.equals(finalResult));
+		assert (expectedWeights[0] == s.getWeightStorage());
+		assert (expectedWeights[1] == a.getWeightStorage());
+		assert (expectedWeights[2] == b.getWeightStorage());
+		assert (expectedWeights[3] == c.getWeightStorage());
+		assert (expectedWeights[4] == d.getWeightStorage());
+		assert (expectedWeights[5] == e.getWeightStorage());
 	}
 }
