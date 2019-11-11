@@ -44,6 +44,21 @@ class BellmanFordTest {
 		*/
 
 		DirectedGraph<String> graph = new DirectedGraph<>();
+		graph.addVertex(s);
+		graph.addVertex(a);
+		graph.addVertex(b);
+		graph.addVertex(c);
+		graph.addVertex(d);
+		graph.addVertex(e);
+
+		graph.createEdge(s, e, 8);
+		graph.createEdge(e, d, 1);
+		graph.createEdge(d, c, -1);
+		graph.createEdge(c, b, -2);
+		graph.createEdge(b, a, 1);
+		graph.createEdge(a, c, 2);
+		graph.createEdge(d, a, -4);
+		graph.createEdge(s, a, 10);
 
 		//When
 
