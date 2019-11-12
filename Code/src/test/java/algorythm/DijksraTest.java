@@ -1,64 +1,50 @@
 package algorythm;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.List;
 
-@SuppressWarnings("unchecked")
-class DiGraphTest
-{
-    public static void main(String[] args)
-    {
 
+class DijkstraTest
+{
+    @Test
+    public void dijkstraTest() {
+
+
+
+//pisząc testy wzorowałem się na zadaniu ze strony: https://zasoby1.open.agh.edu.pl/dydaktyka/matematyka/c_badania_operacyjne/testy/test2.html
         // create graph
         Dijkstra graph = new Dijkstra();
 
         // add a bunch of edges
-        graph.add("SACRAMENTO", "PHOENIX", 150);
-        graph.add("PHOENIX", "SACRAMENTO", 135);
-        graph.add("PHOENIX", "SLC", 120);
-        graph.add("SLC", "SACRAMENTO", 175);
-        graph.add("SACRAMENTO", "PHOENIX", 160); // edge already exists!!!
-        graph.add("SACRAMENTO", "PORTLAND", 90);
-        graph.add("PORTLAND", "SLC", 185);
-        graph.add("OAKLAND", "SACRAMENTO", 45);
-        graph.add("PORTLAND", "OAKLAND", 100);
-        graph.add("SLC", "OAKLAND", 150);
-        graph.add("LAX","OAKLAND", 75);
-        graph.add("SLC", "LAS VEGAS", 100);
-        graph.add("LAS VEGAS", "CHICAGO", 250);
+        graph.add("A", "B", 1);
+        graph.add("A", "E", 1);
+        graph.add("B", "C", 2);
+        graph.add("C", "H", 3);
+        graph.add("C", "D", 1);
+        graph.add("A", "D", 2);
+        graph.add("D", "E", 2);
+        graph.add("E", "F", 2);
+        graph.add("E", "G", 3);
+        graph.add("G", "H", 2);
+        graph.add("F","H", 1);
+        graph.add("D", "H", 4);
 
-        System.out.println("Graph is connected: " + graph.DepthFirstSearch());
-        System.out.println("Connected from LAX:" + graph.BreadthFirstSearch("LAX"));
-        System.out.println();
 
-        System.out.println(graph);
-        System.out.println(graph.edgesToString());
 
-        System.out.println("LAX to PORTLAND");
-        List<String> path = graph.getPath("LAX", "PORTLAND");
-        for (String each : path)
-            System.out.println(each);
 
-        System.out.println("\nSLC to PHOENIX");
-        path = graph.getPath("SLC", "PHOENIX");
-        for (String each : path)
-            System.out.println(each);
 
-        System.out.println("Adding Edge Las Vegas to Phoenix at cost $120");
-        graph.add("LAS VEGAS", "PHOENIX", 120);
+        List<String> path = graph.getPath("A", "H");
 
-        System.out.println("\nSLC to PHOENIX");
-        path = graph.getPath("SLC", "PHOENIX");
-        for (String each : path)
-            System.out.println(each);
+        List<String> path2 = graph.getPath("A", "C");
 
-        System.out.println("\nSACRAMENTO to LAX");
-        path = graph.getPath("SACRAMENTO", "LAX");
-        for (String each : path)
-            System.out.println(each);
+        List<String> path3 = graph.getPath("G", "A");
 
-        System.out.println("\nSACRAMENTO to CHICAGO");
-        path = graph.getPath("SACRAMENTO", "CHICAGO");
-        for (String each : path)
-            System.out.println(each);
+        List<String> path4 = graph.getPath("D", "F");
+
+        assert(path.toString().contains("[A : cost : 0, E : cost : 1, F : cost : 3, H : cost : 4]"));
+        assert(path2.toString().contains("[A : cost : 0, B : cost : 1, C : cost : 3]"));
+        assert(path3.toString().contains("[No path found]"));
+        assert(path4.toString().contains("[D : cost : 0, E : cost : 2, F : cost : 4]"));
     }
 }
